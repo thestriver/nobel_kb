@@ -1,0 +1,26 @@
+[
+  {
+    "name": "kb_deployment_1",
+    "module": { "name": "nobel_kb" },
+    "node": { "ip": "localhost" },
+    "config": {
+      "storage_type": "db",
+      "path": "nobel_kb",
+      "options": {
+        "query_col": "surname",
+        "answer_col": "motivation"
+      },
+      "schema": {
+        "id": { "type": "INTEGER", "primary_key": true },
+        "firstname": { "type": "TEXT" },
+        "surname": { "type": "TEXT" },
+        "born": { "type": "TEXT" },
+        "born_country": { "type": "TEXT" },
+        "gender": { "type": "TEXT" },
+        "year": { "type": "INTEGER" },
+        "category": { "type": "TEXT" },
+        "motivation": { "type": "TEXT" }
+      }
+    }
+  }
+]

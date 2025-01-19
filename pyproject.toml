@@ -1,14 +1,16 @@
 [tool.poetry]
-name = "module-template"
+name = "nobel-kb"
 version = "0.1.0"
-description = ""
-authors = ["Richard Blythman <richardblythman@gmail.com>"]
+description = "Nobel laureates Knowledge Base"
+authors = ["Dean <dean@aidevmode.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"
 naptha-sdk = {git = "https://github.com/NapthaAI/naptha-sdk.git"}
 python-dotenv = "^1.0.1"
+pandas = "^2.2.3"
+tqdm = "^4.67.1"
 
 [build-system]
 requires = ["poetry-core"]
