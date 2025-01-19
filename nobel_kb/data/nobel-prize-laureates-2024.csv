@@ -1,0 +1,13 @@
+Id,Firstname,Surname,Born,Born country,Gender,Year,Category,Motivation
+1046,James,Robinson,,,male,2024,Economics,"""for studies of how institutions are formed and affect prosperity"""
+1045,Simon,Johnson,,United Kingdom,male,2024,Economics,"""for studies of how institutions are formed and affect prosperity"""
+1044,Daron,Acemoglu,1967-09-03,Turkey,male,2024,Economics,"""for studies of how institutions are formed and affect prosperity"""
+1043,Nihon Hidankyo,,1956-08-10,,org,2024,Peace,"""for its efforts to achieve a world free of nuclear weapons and for demonstrating through witness testimony that nuclear weapons must never be used again"""
+1042,Kang,Han,1970-11-27,South Korea,female,2024,Literature,"""for her intense poetic prose that confronts historical traumas and exposes the fragility of human life"""
+1041,John,Jumper,,USA,male,2024,Chemistry,"""for protein structure prediction"""
+1040,Demis,Hassabis,1976-07-27,United Kingdom,male,2024,Chemistry,"""for protein structure prediction"""
+1039,David,Baker,,USA,male,2024,Chemistry,"""for computational protein design"""
+1038,Geoffrey,Hinton,1947-12-06,United Kingdom,male,2024,Physics,"""for foundational discoveries and inventions that enable machine learning with artificial neural networks"""
+1037,John,Hopfield,1933-07-15,USA,male,2024,Physics,"""for foundational discoveries and inventions that enable machine learning with artificial neural networks"""
+1036,Gary,Ruvkun,,USA,male,2024,Medicine,"""for the discovery of microRNA and its role in post-transcriptional gene regulation"""
+1035,Victor,Ambros,1953-12-01,USA,male,2024,Medicine,"""for the discovery of microRNA and its role in post-transcriptional gene regulation"""
