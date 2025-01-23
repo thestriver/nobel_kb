@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "nobel-kb"
+name = "nobel_kb"
 version = "0.1.0"
 description = "Nobel laureates Knowledge Base"
 authors = ["Dean <dean@aidevmode.com>"]
