@@ -215,7 +215,7 @@ if __name__ == "__main__":
     }
     #ran using poetry run python nobel_kb/run.py
     module_run = {
-        "inputs": inputs_dict["init"],  # Change this to test different operations
+        "inputs": inputs_dict["run_query"],  # Change this to test different operations
         "deployment": deployment,
         "consumer_id": naptha.user.id,
         "signature": sign_consumer_id(naptha.user.id, os.getenv("PRIVATE_KEY"))
