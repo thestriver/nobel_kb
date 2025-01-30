@@ -1,7 +1,15 @@
 [
   {
     "name": "kb_deployment_1",
-    "module": { "name": "nobel_kb" },
+    "module": {
+      "name": "nobel_kb",
+      "description": "Nobel Prize Knowledge Base Module",
+      "parameters": "{function_name: str, function_input_data: Optional[Dict]}",
+      "module_type": "kb",
+      "module_version": "v0.3",
+      "module_entrypoint": "run.py",
+      "execution_type": "package"
+    },
     "node": { "ip": "node.naptha.ai" },
     "config": {
       "storage_config": {
