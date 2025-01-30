@@ -19,9 +19,9 @@ class NobelKB:
         self.deployment = deployment
         self.config = self.deployment.config
         self.storage_provider = StorageProvider(self.deployment.node)
-        self.storage_type = self.config.storage_type
-        self.table_name = self.config.path
-        self.schema = self.config.schema
+        self.storage_type = self.config.storage_config.storage_type
+        self.table_name = self.config.storage_config.path
+        self.schema = self.config.storage_config.storage_schema
     
     async def init(self, *args, **kwargs):
         await create(self.deployment)
@@ -106,9 +106,9 @@ async def create(deployment: KBDeployment):
     file_path = Path(__file__).parent / "data" / "nobel-prize-laureates-2024.csv"
 
     storage_provider = StorageProvider(deployment.node)
-    storage_type = deployment.config.storage_type
-    table_name = deployment.config.path
-    schema = {"schema": deployment.config.schema}
+    storage_type = deployment.config.storage_config.storage_type
+    table_name = deployment.config.storage_config.path
+    schema = {"schema": deployment.config.storage_config.storage_schema}
 
     logger.info(f"Creating {storage_type} at {table_name} with schema {schema}")
 
@@ -161,12 +161,12 @@ async def run(module_run: Dict[str, Any], *args, **kwargs):
     module_run.inputs = InputSchema(**module_run.inputs)
     nobel_kb = NobelKB(module_run.deployment)
 
-    method = getattr(nobel_kb, module_run.inputs.function_name, None)
+    method = getattr(nobel_kb, module_run.inputs.func_name, None)
 
     if not method:
-        raise ValueError(f"Invalid function name: {module_run.inputs.function_name}")
+        raise ValueError(f"Invalid function name: {module_run.inputs.func_name}")
 
-    return await method(module_run.inputs.function_input_data)
+    return await method(module_run.inputs.func_input_data)
 
 if __name__ == "__main__":
     import asyncio
@@ -180,12 +180,12 @@ if __name__ == "__main__":
 
     inputs_dict = {
         "init": {
-            "function_name": "init",
-            "function_input_data": None,
+            "func_name": "init",
+            "func_input_data": None,
         },
         "add_data": {
-            "function_name": "add_data",
-            "function_input_data": {
+            "func_name": "add_data",
+            "func_input_data": {
                 "firstname": "Marie",
                 "surname": "Curie",
                 "born": "1867-11-07",
@@ -197,25 +197,25 @@ if __name__ == "__main__":
             },
         },
         "run_query": {
-            "function_name": "run_query",
-            "function_input_data": {"query": "Ruvkun"},
+            "func_name": "run_query",
+            "func_input_data": {"query": "Ruvkun"},
         },
         "list_rows": {
-            "function_name": "list_rows",
-            "function_input_data": {"limit": 10},
+            "func_name": "list_rows",
+            "func_input_data": {"limit": 10},
         },
         "delete_table": {
-            "function_name": "delete_table",
-            "function_input_data": {"table_name": "nobel_kb"},
+            "func_name": "delete_table",
+            "func_input_data": {"table_name": "nobel_kb"},
         },
         "delete_row": {
-            "function_name": "delete_row",
-            "function_input_data": {"condition": {"surname": "Curie"}},
+            "func_name": "delete_row",
+            "func_input_data": {"condition": {"surname": "Curie"}},
         },
     }
     #ran using poetry run python nobel_kb/run.py
     module_run = {
-        "inputs": inputs_dict["init"],  # Change this to test different operations
+        "inputs": inputs_dict["delete_row"],  # Change this to test different operations
         "deployment": deployment,
         "consumer_id": naptha.user.id,
         "signature": sign_consumer_id(naptha.user.id, os.getenv("PRIVATE_KEY"))
